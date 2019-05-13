@@ -3,15 +3,10 @@ pipeline {
   agent any
   tools {nodejs "latest"}
   stages {
-    stage('preflight') {
+    stage('Pre-checks') {
       steps {
         echo sh(returnStdout: true, script: 'env')
         sh 'node -v'
-      }
-    }
-    stage('start') {
-      steps {
-        sh 'node .'
       }
     }
     stage('build') {
@@ -19,6 +14,11 @@ pipeline {
         sh 'npm --version'
         sh 'git log --reverse -1'
         sh 'npm install'
+      }
+    }
+    stage('start') {
+      steps {
+        sh 'node .'
       }
     }
     stage('test') {
