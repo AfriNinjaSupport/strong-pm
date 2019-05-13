@@ -9,19 +9,19 @@ pipeline {
         sh 'node -v'
       }
     }
-    stage('build') {
+    stage('Build from Master') {
       steps {
         sh 'npm --version'
         sh 'git log --reverse -1'
         sh 'npm install'
       }
     }
-    stage('start') {
+    stage('Start Application') {
       steps {
         sh 'node .'
       }
     }
-    stage('test') {
+    stage('Start Test') {
       steps {
         sh 'npm test'
       }
