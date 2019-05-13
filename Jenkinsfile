@@ -1,4 +1,6 @@
 #!/usr/bin/env groovy
+#!/bin/bash -l
+
 pipeline {
   agent any
   tools {nodejs "latest"}
